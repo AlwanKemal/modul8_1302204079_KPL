@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+namespace modul8_1302204079.Controllers
+{ 
+    [ApiController]
+    [Route("api/[controller]")]
+    public class MovieController : ControllerBase
+    {
+        private static List<string> Stars1 = new List<string>
+        {
+            "Tim Robbins", "Morgan Freeman", "Bob Gunton", "William Sadler"
+        };
+        private static List<string> Stars2 = new List<string>
+        {
+            "Marlon Brando", "Al Pacino", "James Caan", "Diane Keaton"
+        };
+        private static List<string> Stars3 = new List<string>
+        {
+            "Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine"
+        };
+        private readonly ILogger<MovieController> _logger;
+
+        List<Movie> movies2 = new List<Movie>();
+
+        public MovieController(ILogger<MovieController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet]
+        public IEnumerable<Movie> Get()
+        {
+            movies2.Add(new Movie("The Shawshank Redemption", Frank))
+        }
+    }
+}
